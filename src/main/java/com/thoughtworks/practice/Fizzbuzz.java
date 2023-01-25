@@ -8,14 +8,26 @@ public class Fizzbuzz {
 
     private String fizzbuzz(String input) {
         long number = Long.parseLong(input);
-        if (number % 5 == 0 && number % 3 == 0) {
+        if (isDivisibleByFiveAndThree(number)) {
             return "fizzbuzz";
-        } else if (number % 5 == 0) {
+        } else if (isDivisibleByFive(number)) {
             return "buzz";
-        } else if (number % 3 == 0) {
+        } else if (isDivisibleByThree(number)) {
             return "fizz";
         }
         return "not fizzy or buzzy";
+    }
+
+    private boolean isDivisibleByThree(long number) {
+        return number % 3 == 0;
+    }
+
+    private boolean isDivisibleByFive(long number) {
+        return number % 5 == 0;
+    }
+
+    private boolean isDivisibleByFiveAndThree(long number) {
+        return isDivisibleByFive(number) && isDivisibleByThree(number);
     }
 
     private boolean isNumeric(String input) {
